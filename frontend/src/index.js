@@ -25,6 +25,7 @@ const Root = () => {
 }
 
 const renderApplication = () => {
+  // debugger
   ReactDOM.render(
     <React.StrictMode>
       <Root />
@@ -33,8 +34,15 @@ const renderApplication = () => {
   );
 }
 
+// if (sessionStorage.getItem("X-CSRF-Token") === undefined) {
+  // debugger  
+//   sessionStorage.setItem("X-CSRF-Token", null)
+// }
+
 if (sessionStorage.getItem("X-CSRF-Token") === null) {
+  // debugger
   restoreCSRF().then(renderApplication);
 } else {
+  // debugger
   renderApplication();
 }

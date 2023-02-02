@@ -27,11 +27,13 @@ async function csrfFetch(url, options = {}) {
 }
 
 export function storeCSRFToken(response) {
+    // debugger
     const csrfToken = response.headers.get("X-CSRF-Token");
     if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
 }
   
 export async function restoreCSRF() {
+    // debugger
     const response = await fetch("/api/session");
     storeCSRFToken(response);
     return response;
